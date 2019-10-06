@@ -7,16 +7,18 @@
     "url": "https://github.com/abba-bible"
   },
   "bugs": {
-    "url": "https://github.com/blockstack/hello-blockstack/issues"
+    "url": "https://github.com/abba-bible"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "blockstack": "^19.2.5",
+    "fomantic-ui-css": "^2.7.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "semantic-ui-react": "^0.88.1"
   },
   "scripts": {
     "start": "react-scripts start",

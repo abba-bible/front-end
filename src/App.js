@@ -4,7 +4,7 @@ import Signin from "./Signin.js";
 import { UserSession, AppConfig } from "blockstack";
 
 export default function App() {
-  
+  //creating variable for AppConfig
   const appConfig = new AppConfig();
   const userSession = new UserSession({ appConfig: appConfig });
 
@@ -14,11 +14,12 @@ export default function App() {
   useEffect(() => {
     if (userSession.isSignInPending()) {
       userSession.handlePendingSignIn().then(userData => {
+        console.log(userData);
         window.history.replaceState({}, document.title, "/");
         setUserData(userData);
       });
     }
-  }, [userSession]);
+  }, [userSession]); // if userSession changes run this effect again
 
   function handleSignIn(e) {
     e.preventDefault();
@@ -31,6 +32,7 @@ export default function App() {
   }
 
   return (
+    
     <div>
       <div>
         {!userSession.isUserSignedIn() ? (
@@ -40,5 +42,6 @@ export default function App() {
         )}
       </div>
     </div>
+    
   );
 }
