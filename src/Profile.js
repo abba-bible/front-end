@@ -11,21 +11,22 @@ export default function Profile(props) {
   }, [])
 
     return (
-      !props.userSession.isSignInPending() ?
-      <div className="panel-welcome" id="section-2">
-        <div className="avatar-section">
-          <img src={ person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage } className="img-rounded avatar" id="avatar-image" alt=""/>
-        </div>
-        <h1>Hello, <span id="heading-name">{ person.name() ? person.name() : 'Nameless Person' }</span>!</h1>
-        <p className="lead">
-          <button
-            className="btn btn-primary btn-lg"
-            id="signout-button"
-            onClick={ props.handleSignOut }
-          >
+      <div>
+      {console.log(person.name)}
+      {props.userSession.isUserSignedIn() ? <div> YOU ARE ONLINE WITH BLOCKSTACK </div> : null}
+      <img src={person.avatarUrl()} />
+          <button id="signout-button" onClick={ props.handleSignOut } >
             Logout
           </button>
-        </p>
-      </div> : null
+    
+      </div>
     );
 }
+
+
+// !props.userSession.isSignInPending() ?
+//       <div className="panel-welcome" id="section-2">
+//         <div className="avatar-section">
+//           <img src={ person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage } className="img-rounded avatar" id="avatar-image" alt=""/>
+//         </div>
+//         <h1>Hello, <span id="heading-name">{ person.name() ? person.name() : 'Nameless Person' }</span>!</h1>

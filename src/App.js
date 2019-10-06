@@ -18,7 +18,7 @@ export default function App() {
         setUserData(userData);
       });
     }
-  }, []);
+  }, [userSession]);
 
   function handleSignIn(e) {
     e.preventDefault();
@@ -42,13 +42,3 @@ export default function App() {
     </div>
   );
 }
-
-//   componentDidMount() {
-//     if (userSession.isSignInPending()) {
-//       userSession.handlePendingSignIn().then((userData) => {
-//         window.history.replaceState({}, document.title, "/")
-//         this.setState({ userData: userData})
-//       });
-//     }
-//   }
-//
