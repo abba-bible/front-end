@@ -35,11 +35,8 @@ export default function App() {
     
     <div>
       <div>
-        {!userSession.isUserSignedIn() ? (
-          <Signin userSession={userSession} handleSignIn={handleSignIn} />
-        ) : (
-          <Profile userSession={userSession} handleSignOut={handleSignOut} />
-        )}
+        {!userSession.isUserSignedIn() ? ( <Signin userSession={userSession} handleSignIn={handleSignIn} /> ) : 
+        ( <Profile userSession={userSession} handleSignOut={handleSignOut} /> )}
       </div>
     </div>
     

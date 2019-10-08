@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import 'fomantic-ui-css/semantic.css';
 import { Container, Header } from 'semantic-ui-react';
 import { Person } from 'blockstack';
+import Test from './test';
+
 const avatarFallbackImage = 'https://s3.amazonaws.com/onename/avatar-placeholder.png';
 
 export default function Profile(props) {
@@ -15,12 +17,13 @@ export default function Profile(props) {
     return (
       <Container style={{ background: 'black'}}>
           <div>
-      {/* {console.log(person.name)} */}
+      
 {props.userSession.isUserSignedIn() ? <div> <Header style={{ color: 'white' }}>YOU ARE ONLINE WITH BLOCKSTACK </Header></div> : null}
       <img src={person.avatarUrl()} />
           <button id="signout-button" onClick={ props.handleSignOut } >
             Logout
           </button>
+          <Test />
     
       </div>
       </Container>

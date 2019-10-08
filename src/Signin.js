@@ -1,6 +1,7 @@
 import React from 'react';
 import 'fomantic-ui-css/semantic.css';
 import { Container, Header } from 'semantic-ui-react';
+import Test from './test';
 
 export default function Signin(props) {
 
@@ -12,6 +13,7 @@ export default function Signin(props) {
             Sign In with Blockstack
           </button>
         </center>
+        <Test userSession={props.userSession} />
           
       </div>
     );
