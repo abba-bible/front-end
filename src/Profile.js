@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'fomantic-ui-css/semantic.css';
-import { Container, Header } from 'semantic-ui-react';
+import { Container, Header, Loader } from 'semantic-ui-react';
 import { Person } from 'blockstack';
 import Test from './test';
 
@@ -8,18 +8,33 @@ const avatarFallbackImage = 'https://s3.amazonaws.com/onename/avatar-placeholder
 
 export default function Profile(props) {
 
-  const [person, setPerson] = useState({name() { return 'Anonymous'; }, avatarUrl() {  return avatarFallbackImage;}})
+  const [person, setPerson] = useState({name() { return 'Anonymous'; }, avatarUrl() {  return avatarFallbackImage; }, 
+  
+  
+  description() { return 'No Description';}, apps({}) { return 'No Apps' } })
 
   useEffect((e) => {
-    setPerson(new Person(props.userSession.loadUserData().profile),);
+    setPerson(new Person(props.userSession.loadUserData().profile),); // when component mounts, set Person data to props  user data
   }, [])
 
     return (
+ 
       <Container style={{ background: 'black'}}>
           <div>
+<<<<<<< Updated upstream
       
 {props.userSession.isUserSignedIn() ? <div> <Header style={{ color: 'white' }}>YOU ARE ONLINE WITH BLOCKSTACK </Header></div> : null}
+=======
+          {console.log(person.name())}
+{props.userSession.isUserSignedIn() ? <div> <Header style={{ color: 'white' }}>YOU ARE ONLINE WITH BLOCKSTACK 
+
+<Loader active inline className="fast green" /></Header>
+<p>{person.description() ? person.description() : 'No Description' }</p>
+{/* <p>{person.apps() ? person.apps() : 'No Description' }</p> */}
+</div> : null}
+>>>>>>> Stashed changes
       <img src={person.avatarUrl()} />
+    
           <button id="signout-button" onClick={ props.handleSignOut } >
             Logout
           </button>
@@ -29,8 +44,10 @@ export default function Profile(props) {
       </Container>
     
     );
-}
+  
 
+
+  }
 
 // !props.userSession.isSignInPending() ?
 //       <div className="panel-welcome" id="section-2">

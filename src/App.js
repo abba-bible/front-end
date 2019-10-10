@@ -6,29 +6,32 @@ import { UserSession, AppConfig } from "blockstack";
 export default function App() {
   //creating variable for AppConfig
   const appConfig = new AppConfig();
-  const userSession = new UserSession({ appConfig: appConfig });
+  //creating variable for a New User Session
+  const userSession = new UserSession({ appConfig: appConfig }); // adding app configuration as object to new user session
 
-
+  //state to hold user data from effect (App component mounted)
  const [userData, setUserData] = useState();
 
   useEffect(() => {
     if (userSession.isSignInPending()) {
       userSession.handlePendingSignIn().then(userData => {
-        console.log(userData);
+        // console.log(userData);
         window.history.replaceState({}, document.title, "/");
         setUserData(userData);
       });
     }
-  }, [userSession]); // if userSession changes run this effect again
+  }, []); // if userSession changes run this effect again
 
+  // console.log(userData)
+  // console.log(userSession)
   function handleSignIn(e) {
     e.preventDefault();
-    userSession.redirectToSignIn();
+    userSession.redirectToSignIn(); // redirect user to blockstack sign-in
   }
 
   function handleSignOut(e) {
     e.preventDefault();
-    userSession.signUserOut(window.location.origin);
+    userSession.signUserOut(window.location.origin); // when user signs out, go back to original page started on
   }
 
   return (
