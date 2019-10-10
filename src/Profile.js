@@ -21,10 +21,6 @@ export default function Profile(props) {
  
       <Container style={{ background: 'black'}}>
           <div>
-<<<<<<< Updated upstream
-      
-{props.userSession.isUserSignedIn() ? <div> <Header style={{ color: 'white' }}>YOU ARE ONLINE WITH BLOCKSTACK </Header></div> : null}
-=======
           {console.log(person.name())}
 {props.userSession.isUserSignedIn() ? <div> <Header style={{ color: 'white' }}>YOU ARE ONLINE WITH BLOCKSTACK 
 
@@ -32,7 +28,6 @@ export default function Profile(props) {
 <p>{person.description() ? person.description() : 'No Description' }</p>
 {/* <p>{person.apps() ? person.apps() : 'No Description' }</p> */}
 </div> : null}
->>>>>>> Stashed changes
       <img src={person.avatarUrl()} />
     
           <button id="signout-button" onClick={ props.handleSignOut } >
