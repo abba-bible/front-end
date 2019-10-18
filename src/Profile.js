@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import 'fomantic-ui-css/semantic.css';
-import { Container, Header, Loader } from 'semantic-ui-react';
 import { Person } from 'blockstack';
 import Test from './test';
 
@@ -19,12 +17,12 @@ export default function Profile(props) {
 
     return (
  
-      <Container style={{ background: 'black'}}>
+      <div style={{ background: 'black'}}>
           <div>
           {console.log(person.name())}
-{props.userSession.isUserSignedIn() ? <div> <Header style={{ color: 'white' }}>YOU ARE ONLINE WITH BLOCKSTACK 
+{props.userSession.isUserSignedIn() ? <div> <h1 style={{ color: 'white' }}>YOU ARE ONLINE WITH BLOCKSTACK </h1>
 
-<Loader active inline className="fast green" /></Header>
+
 <p>{person.description() ? person.description() : 'No Description' }</p>
 {/* <p>{person.apps() ? person.apps() : 'No Description' }</p> */}
 </div> : null}
@@ -36,7 +34,7 @@ export default function Profile(props) {
           <Test />
     
       </div>
-      </Container>
+      </div>
     
     );
   
