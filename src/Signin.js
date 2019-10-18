@@ -1,18 +1,21 @@
 import React from 'react';
-import 'fomantic-ui-css/semantic.css';
-import { Container, Header } from 'semantic-ui-react';
+import { Button, AppBar, CssBaseline } from '@material-ui/core/';
 import Test from './test';
 
 export default function Signin(props) {
 
     return (
       <div>
-        <center>
-        A Better Bible App<br />
-        <button  onClick={ props.handleSignIn }>
+        <CssBaseline />
+       
+          <AppBar>A Better Bible App
+
+          </AppBar>
+        <br />
+        <Button  onClick={ props.handleSignIn }>
             Sign In with Blockstack
-          </button>
-        </center>
+          </Button>
+   
         <Test userSession={props.userSession} />
           
       </div>
